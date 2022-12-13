@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="&#x09;"/>
+		<list key="findhistory">
+			<item value="&#x09;"/>
+			<item value="if(line.charAt(2)== &apos;X&apos;) { //rock egalité"/>
+			<item value="if(line.charAt(2)== &apos;Z&apos;) { // ciseau egalité"/>
+			<item value="if(line.charAt(2)== &apos;X&apos;) { //rock perdu"/>
+		</list>
+	</section>
+</section>
