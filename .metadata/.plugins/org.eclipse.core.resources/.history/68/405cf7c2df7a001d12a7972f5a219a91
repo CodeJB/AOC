@@ -1,0 +1,69 @@
+package fr.codeJB;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Startup {
+
+	public static void main(String[] args) {
+		
+		 File file = new File("dataSet.txt");		 
+	        Reader reader;
+			try {
+				reader = new FileReader(file);
+				  BufferedReader br = new BufferedReader(reader);			        
+			        String line = "";
+			       List<String> LstOpponent = new ArrayList<String>();
+			       List<String> LstMe = new ArrayList<String>();		
+			       int total = 0;
+			        while((line = br.readLine()) != null) {		
+			        	LstOpponent.add(String.valueOf(line.charAt(0)));
+			        	LstMe.add(String.valueOf(line.charAt(2)));
+			        	
+			        	if(line.charAt(0) == 'A') { //Rock=>1
+//			        		if(line.charAt(2)== 'X') { //rock perdu
+//			        			total += 1;
+//			        		}
+			        		if(line.charAt(2)== 'Y') { //papier gagné
+			        			total += 8;
+			        		}
+//			        		if(line.charAt(2)== 'Z') { // ciseau egalité
+//			        			total += 3;
+//			        		}
+			        		 
+					     }
+			        	if(line.charAt(0)=='B') { //Paper=>2
+			        		if(line.charAt(2)== 'X') { //rock perdu
+			        			total += 1;
+			        		}
+//			        		if(line.charAt(2)== 'Y') { //papier egalité
+//			        			total += 5;
+//			        		}if(line.charAt(2)== 'Z') { //ciseau gagné
+//			        			total += 9;
+//			        		}
+			        	}
+			        	if(line.charAt(0)=='C') { //Scissor=>3
+//			        		if(line.charAt(2)== 'X') {//rock gagné
+//			        			total += 7;
+//			        		}if(line.charAt(2)== 'Y') {//papier perdu
+//			        			total += 2;
+//			        		}
+			        		if(line.charAt(2)== 'Z') {//ciseau égalité
+			        			total += 6;
+			        		}
+			        	}
+			        }
+			        
+			        br.close();
+			        System.out.println("Le total : "+total);
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+	      
+	}
+
+}

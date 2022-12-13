@@ -16,32 +16,74 @@ public class Startup {
 			try {
 				reader = new FileReader(file);
 				  BufferedReader br = new BufferedReader(reader);			        
-			        String line;
-			        List<Integer> nbCalories = new ArrayList<Integer>();
-			        int total = 0;
-			        while((line = br.readLine()) != null) {
-			        	if(line.length()==0) {
-			        		nbCalories.add(total);
-			        		total =0;
-			        	}else {
-			        	total += Integer.parseInt(line);
+			        String line = "";
+			       List<String> LstOpponent = new ArrayList<String>();
+			       List<String> LstMe = new ArrayList<String>();		
+			       int total = 0;
+			        while((line = br.readLine()) != null) {		
+			        	LstOpponent.add(String.valueOf(line.charAt(0)));
+			        	LstMe.add(String.valueOf(line.charAt(2)));
+			        	System.out.println(line.charAt(2));
+			        	if(line.charAt(2)=='X') {//perdre
+			        		if(line.charAt(0)== 'A') { //rock donc je joue le ciseau
+			        			total += 3;
+			        		}if(line.charAt(0)== 'B') { //papier donc je joue le rock
+			        			total += 1;
+			        		}if(line.charAt(0)== 'C') { // ciseau donc je joue le papier
+			        			total += 2;
+			        		}
 			        	}
-			           
-			        }
-			        for(int i =0; nbCalories.size()>i; i++) {
-			        	System.out.println("Nombre de : "+i);
-			        	System.out.println(nbCalories.get(i).toString());
+			        	if(line.charAt(2)=='Y') {//nul
+			        		if(line.charAt(0)== 'A') { //rock donc je joue le rock
+			        			total += 4;
+			        		}if(line.charAt(0)== 'B') { //papier donc je joue le papier
+			        			total += 5;
+			        		}if(line.charAt(0)== 'C') { // ciseau donc je joue le ciseau
+			        			total += 6;
+			        		}
+			        	}
+			        	if(line.charAt(2)=='Z') {//win
+			        		if(line.charAt(0)== 'A') { //rock donc je joue le rock
+			        			total += 8;
+			        		}if(line.charAt(0)== 'B') { //papier 
+			        			total += 9;
+			        		}if(line.charAt(0)== 'C') { // ciseau 
+			        			total += 7;
+			        		}
+			        	}
 			        	
-			        	
+//			        	if(line.charAt(0) == 'A') { //Rock=>1
+//			        		if(line.charAt(2)== 'X') { //rock egalité
+//			        			total += 4;
+//			        		}if(line.charAt(2)== 'Y') { //papier gagné
+//			        			total += 8;
+//			        		}if(line.charAt(2)== 'Z') { // ciseau perdu
+//			        			total += 3;
+//			        		}
+//			        		 
+//					     }
+//			        	if(line.charAt(0)=='B') { //Paper=>2
+//			        		if(line.charAt(2)== 'X') { //rock perdu
+//			        			total += 1;
+//			        		}if(line.charAt(2)== 'Y') { //papier egalité
+//			        			total += 5;
+//			        		}if(line.charAt(2)== 'Z') { //ciseau gagné
+//			        			total += 9;
+//			        		}
+//			        	}
+//			        	if(line.charAt(0)=='C') { //Scissor=>3
+//			        		if(line.charAt(2)== 'X') {//rock gagné
+//			        			total += 7;
+//			        		}if(line.charAt(2)== 'Y') {//papier perdu
+//			        			total += 2;
+//			        		}if(line.charAt(2)== 'Z') {//ciseau égalité
+//			        			total += 6;
+//			        		}
+//			        	}
 			        }
-			       
-			        Collections.sort(nbCalories);
-			        System.out.println("Après tri"+nbCalories.get(nbCalories.size()-1));
-			        int tt = nbCalories.get(nbCalories.size()-1)+nbCalories.get(nbCalories.size()-2)+nbCalories.get(nbCalories.size()-3);
-			        System.out.println("Le max : "+Collections.max(nbCalories));
-			        System.out.println("Super tt "+tt);
-//			       
+			        
 			        br.close();
+			        System.out.println("Le total : "+total);
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}

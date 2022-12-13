@@ -1,0 +1,40 @@
+package fr.codeJB;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Startup {
+
+	public static void main(String[] args) {
+		
+		 File file = new File("dataSet.txt");		 
+	        Reader reader;
+			try {
+				reader = new FileReader(file);
+				  BufferedReader br = new BufferedReader(reader);			        
+			        String line = "";
+			       List<char> Lstopponent = new ArrayList<String>(); 
+			        int total = 0;
+			        while((line = br.readLine()) != null) {		
+			        	Lstopponent.add(line.charAt(0));
+//			        	if(line.charAt(0)=='A') {
+//			        		System.out.println(line);			        		
+//			        	}
+			        	
+			        	
+			           
+			        }
+			      
+//			       
+			        br.close();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+	      
+	}
+
+}

@@ -1,0 +1,52 @@
+package fr.codeJB;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Startup {
+
+	public static void main(String[] args) {
+		
+		 File file = new File("dataSet.txt");		 
+	        Reader reader;
+			try {
+				reader = new FileReader(file);
+				  BufferedReader br = new BufferedReader(reader);			        
+			        String line = "";
+			       List<String> LstOpponent = new ArrayList<String>();
+			       List<String> LstMe = new ArrayList<String>();			       
+			        while((line = br.readLine()) != null) {		
+			        	LstOpponent.add(String.valueOf(line.charAt(0)));
+			        	LstMe.add(String.valueOf(line.charAt(2)));
+			        }
+			        int total =0;
+			        for(int i = 0;LstOpponent.size()>i;i++) {				        	
+			        	if(LstOpponent.get(i).toCharArray()[0] == 'A') {
+			        		if(LstMe.get(i).toCharArray()[0]== 'X') {
+			        			total +=
+			        		}if(LstMe.get(i).toCharArray()[0]== 'Y') {
+			        			total +=
+			        		}if(LstMe.get(i).toCharArray()[0]== 'Z') {
+			        			total +=
+			        		}
+			        		 
+					     }
+			        	if(LstOpponent.get(i).toCharArray()[0]=='B') {
+			        		total +=
+			        	}
+			        	if(LstOpponent.get(i).toCharArray()[0]=='C') {
+			        		total +=
+			        	}
+			        }
+			        br.close();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+	      
+	}
+
+}

@@ -1,0 +1,65 @@
+package fr.codeJB;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Startup {
+
+	public static void main(String[] args) {
+		
+		 File file = new File("dataSet.txt");		 
+	        Reader reader;
+			try {
+				reader = new FileReader(file);
+				  BufferedReader br = new BufferedReader(reader);			        
+			        String line = "";
+			       List<String> LstOpponent = new ArrayList<String>();
+			       List<String> LstMe = new ArrayList<String>();		
+			       int total = 0;
+			        while((line = br.readLine()) != null) {		
+			        	LstOpponent.add(String.valueOf(line.charAt(0)));
+			        	LstMe.add(String.valueOf(line.charAt(2)));
+			        	
+			        	if(line.charAt(0) == 'A') {
+			        		if(line.charAt(2)== 'X') {
+			        			total += 1;
+			        		}if(line.charAt(2)== 'Y') {
+			        			total += 8;
+			        		}if(line.charAt(2)== 'Z') {
+			        			total += 3;
+			        		}
+			        		 
+					     }
+			        	if(line.charAt(0)=='B') {
+			        		if(line.charAt(2)== 'X') {
+			        			total += 1;
+			        		}if(line.charAt(2)== 'Y') {
+			        			total += 5;
+			        		}if(line.charAt(2)== 'Z') {
+			        			total += 9;
+			        		}
+			        	}
+			        	if(line.charAt(0)=='C') {
+			        		if(line.charAt(2)== 'X') {
+			        			total += 7;
+			        		}if(line.charAt(2)== 'Y') {
+			        			total += 2;
+			        		}if(line.charAt(2)== 'Z') {
+			        			total += 6;
+			        		}
+			        	}
+			        }
+			        
+			        br.close();
+			        System.out.println("Le total : "+total);
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+	      
+	}
+
+}

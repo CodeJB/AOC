@@ -1,0 +1,49 @@
+package fr.codeJB;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Startup {
+
+	public static void main(String[] args) {
+		
+		 File file = new File("dataSet.txt");		 
+	        Reader reader;
+			try {
+				reader = new FileReader(file);
+				  BufferedReader br = new BufferedReader(reader);			        
+			        String line = "";
+			       List<String> Lstopponent = new ArrayList<String>();
+			       List<String> LstMe = new ArrayList<String>();
+			        int total = 0;
+			        while((line = br.readLine()) != null) {		
+			        	Lstopponent.add(String.valueOf(line.charAt(0)));
+			        	LstMe.add(String.valueOf(line.charAt(2)));
+			        }
+			        int cpt = 0;
+			      
+			        for (String value : Lstopponent) {	
+			        	
+			        	if(value == value) {
+			        		int i = cpt++;					        
+					        if(Lstopponent.get(i++) == "B" && Lstopponent.get(i+2)== "C") {
+					        	System.out.println("Trouvé  "+i);
+					        }
+			        	}
+					}
+			       
+			        
+			        System.out.println("Pas trouvé");
+//			       
+			        br.close();
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+	      
+	}
+
+}
