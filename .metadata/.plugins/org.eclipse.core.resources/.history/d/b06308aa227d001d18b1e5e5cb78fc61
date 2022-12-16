@@ -30,15 +30,13 @@ public class Startup {
 			        		}
 			        	}
 			        	
-			        	System.out.println("Elfe 1 "+ lstPosition.get(0)+" - "+lstPosition.get(1));
-			        	System.out.println("Elfe 2 "+ lstPosition.get(2)+" - "+lstPosition.get(3));
-			        	if((lstPosition.get(2)>=lstPosition.get(0) && lstPosition.get(3)<=lstPosition.get(1)) || (lstPosition.get(2)<=lstPosition.get(0) && lstPosition.get(3)>=lstPosition.get(1))) {//le deuxième elfe est inclu dans le premier
-			        		inclu++;
+			        	if((lstPosition.get(2)>lstPosition.get(0) && lstPosition.get(3)<lstPosition.get(1)) || (lstPosition.get(2)<lstPosition.get(0) && lstPosition.get(3)>lstPosition.get(1))) {//le deuxième elfe est inclu dans le premier
+			        		
 			        	}
 			        }
 			        
 			        br.close();
-			        System.out.println("Le total : "+inclu);
+			        //System.out.println("Le total : "+total);
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
