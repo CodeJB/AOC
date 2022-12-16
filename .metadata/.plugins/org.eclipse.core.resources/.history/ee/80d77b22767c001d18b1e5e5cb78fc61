@@ -1,0 +1,45 @@
+package fr.codeJB;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+
+public class Startup {
+
+	public static void main(String[] args) {
+		
+		 File file = new File("./dataSet.txt");		 
+	        Reader reader;
+			try {
+				reader = new FileReader(file);
+				  BufferedReader br = new BufferedReader(reader);			        
+			        String line = "";
+			      
+			        while((line = br.readLine()) != null) {		
+			        		char[] tabC = line.toCharArray();
+			        		System.out.println("Taille du tableau "+tabC.length);
+			        		System.out.println("De-taille du tableau "+tabC.length/2);
+				        	for (int i =0; tabC.length/2 > i; i++) {
+				        		System.out.println("i "+i);
+				        		for(int y = tabC.length/2;tabC.length>y;y++) {
+				        			System.out.println("y "+y);
+				        			if(tabC[i]==tabC[y]) {
+				        				System.out.println("Trouvé");
+				        			}
+				        		}
+				        		
+				        	}
+			        	}
+			        	
+			        br.close();
+			        
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+			}
+	      
+	}
+
+}

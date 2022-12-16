@@ -11,83 +11,96 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
-		 File file = new File("dataSet.txt");		 
+		 File file = new File("./dataSet.txt");		 
 	        Reader reader;
 			try {
 				reader = new FileReader(file);
 				  BufferedReader br = new BufferedReader(reader);			        
-			        String line = "";
-			       List<String> LstOpponent = new ArrayList<String>();
-			       List<String> LstMe = new ArrayList<String>();		
-			       int total = 0;
+			      String line = "";
+			      int total = 0;
+			      String[] tabThreeelve = new String[3];
+			      int cpt = 0;
+			      
 			        while((line = br.readLine()) != null) {		
-			        	LstOpponent.add(String.valueOf(line.charAt(0)));
-			        	LstMe.add(String.valueOf(line.charAt(2)));
-			        	System.out.println(line.charAt(2));
-			        	if(line.charAt(2)=='X') {//perdre
-			        		if(line.charAt(0)== 'A') { //rock donc je joue le ciseau
-			        			total += 3;
-			        		}if(line.charAt(0)== 'B') { //papier donc je joue le rock
-			        			total += 1;
-			        		}if(line.charAt(0)== 'C') { // ciseau donc je joue le papier
-			        			total += 2;
-			        		}
-			        	}
-			        	if(line.charAt(2)=='Y') {//nul
-			        		if(line.charAt(0)== 'A') { //rock donc je joue le rock
-			        			total += 4;
-			        		}if(line.charAt(0)== 'B') { //papier donc je joue le papier
-			        			total += 5;
-			        		}if(line.charAt(0)== 'C') { // ciseau donc je joue le ciseau
-			        			total += 6;
-			        		}
-			        	}
-			        	if(line.charAt(2)=='Z') {//win
-			        		if(line.charAt(0)== 'A') { //rock donc je joue le rock
-			        			total += 8;
-			        		}if(line.charAt(0)== 'B') { //papier 
-			        			total += 9;
-			        		}if(line.charAt(0)== 'C') { // ciseau 
-			        			total += 7;
-			        		}
+			        	
+			        	if(cpt==2) {			        		
+			        		System.out.println("first mot"+line);
+			        		char[] tabC = line.toCharArray();
+			        		
+			        			for (int i =0; tabC.length > i; i++) {
+
+					        		for(int y = 0;tabThreeelve[0].toCharArray().length>y;y++) {	
+
+					        			if(tabC[i]==tabThreeelve[0].toCharArray()[y]) { // si j'ai un caractère identique dans le premier tableau
+
+					        				for(int j = 0;tabThreeelve[1].toCharArray().length>j;j++) {	
+					        					if(tabC[i]==tabThreeelve[1].toCharArray()[j]) { // si j'ai un caractère identique dans le deuxième tableau
+					        						if(Character.isUpperCase(tabC[i])) { // si c'est une majuscule
+					        							total += positions(tabC[i]) + 26;
+							        					System.out.println(tabC[i]);
+							        					y = tabThreeelve[0].toCharArray().length;
+							        					i =tabC.length;
+							        					j= tabThreeelve[1].toCharArray().length;
+							        					}else {
+							        					total += positions(tabC[i]) ;
+							        					System.out.println(tabC[i]);
+							        					y = tabThreeelve[0].toCharArray().length;
+							        					i =tabC.length;
+							        					j= tabThreeelve[1].toCharArray().length;
+							        					}
+					        						}
+					        					}
+					        				}
+					        			}
+
+					        		}
+			        			cpt = 0;
+					        		
+					        	}else {
+			        		tabThreeelve[cpt]=line;
+				        	cpt++;
+					        	}
 			        	}
 			        	
-//			        	if(line.charAt(0) == 'A') { //Rock=>1
-//			        		if(line.charAt(2)== 'X') { //rock egalité
-//			        			total += 4;
-//			        		}if(line.charAt(2)== 'Y') { //papier gagné
-//			        			total += 8;
-//			        		}if(line.charAt(2)== 'Z') { // ciseau perdu
-//			        			total += 3;
-//			        		}
-//			        		 
-//					     }
-//			        	if(line.charAt(0)=='B') { //Paper=>2
-//			        		if(line.charAt(2)== 'X') { //rock perdu
-//			        			total += 1;
-//			        		}if(line.charAt(2)== 'Y') { //papier egalité
-//			        			total += 5;
-//			        		}if(line.charAt(2)== 'Z') { //ciseau gagné
-//			        			total += 9;
-//			        		}
-//			        	}
-//			        	if(line.charAt(0)=='C') { //Scissor=>3
-//			        		if(line.charAt(2)== 'X') {//rock gagné
-//			        			total += 7;
-//			        		}if(line.charAt(2)== 'Y') {//papier perdu
-//			        			total += 2;
-//			        		}if(line.charAt(2)== 'Z') {//ciseau égalité
-//			        			total += 6;
-//			        		}
-//			        	}
-			        }
-			        
+			        	
+			        	
+//			        	
+//			        	
+//			        		char[] tabC = line.toCharArray();	        		
+//			        		
+//				        	for (int i =0; tabC.length/2 > i; i++) {				        		
+//				        		for(int y = tabC.length/2;tabC.length>y;y++) {				        			
+//				        			if(tabC[i]==tabC[y]) {
+//				        				if(Character.isUpperCase(tabC[i])) {
+//				        					total += positions(tabC[i]) + 26;
+//				        					System.out.println(tabC[i]);
+//				        					y = tabC.length;
+//				        					i =tabC.length/2;
+//				        				}else {
+//				        					total += positions(tabC[i]) ;
+//				        					System.out.println(tabC[i]);
+//				        					y = tabC.length;
+//				        					i =tabC.length/2;
+//				        				}
+//				        			}
+//				        		}
+//				        		
+//				        	}
+			        	
+			        	
 			        br.close();
-			        System.out.println("Le total : "+total);
+			        System.out.println("Le total est de : "+total);
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
 	      
 	}
+	
+	static int positions(char str)
+    {
+        
+            return str & 31;
+        
+    }
 
 }
